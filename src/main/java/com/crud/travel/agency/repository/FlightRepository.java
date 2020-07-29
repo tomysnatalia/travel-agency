@@ -1,12 +1,12 @@
 package com.crud.travel.agency.repository;
 
 import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.FlightDto;
+
 import com.crud.travel.agency.interfaces.FlightInterface;
 import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
+
 
 public interface FlightRepository extends CrudRepository <Flight, Long>, FlightInterface {
 

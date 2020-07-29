@@ -1,13 +1,12 @@
 package com.crud.travel.agency.service;
 
 import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.FlightDto;
 import com.crud.travel.agency.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 
 @Service
