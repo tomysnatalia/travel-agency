@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -14,15 +16,25 @@ import java.util.Objects;
 public class Flight {
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(name = "departures")
     private String departure;
 
+    @NotNull
     @Column(name = "arrivals")
     private String arrival;
 
+    @Column(name = "departureDate")
+    private LocalDate departureDate;
+
+    @Column(name = "returnDay")
+    private LocalDate returnDate;
+
+    @NotNull
     @Column(name = "price")
     int price;
 

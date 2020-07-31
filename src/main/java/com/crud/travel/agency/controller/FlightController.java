@@ -1,7 +1,7 @@
 package com.crud.travel.agency.controller;
 
 import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.FlightDto;
+import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.mapper.FlightMapper;
 import com.crud.travel.agency.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,6 @@ public class FlightController {
 
     @Autowired
     private FlightMapper flightMapper;
-
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/flights")
@@ -50,6 +49,6 @@ public class FlightController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/flight/{id}")
     public void deleteFlight(@PathVariable Long id) {
-            flightService.deleteFlight(id);
+        flightService.deleteFlight(id);
     }
 }

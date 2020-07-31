@@ -1,9 +1,12 @@
-package com.crud.travel.agency.domain;
+package com.crud.travel.agency.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -14,6 +17,8 @@ public class FlightDto {
     private Long id;
     private String departure;
     private String arrival;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
     int price;
 
 
