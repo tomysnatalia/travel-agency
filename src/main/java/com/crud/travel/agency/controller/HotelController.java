@@ -3,6 +3,7 @@ package com.crud.travel.agency.controller;
 import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.domain.dto.HotelDto;
+import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.HotelMapper;
 import com.crud.travel.agency.repository.HotelRepository;
 import com.crud.travel.agency.service.HotelService;
@@ -25,6 +26,11 @@ public class HotelController {
     @RequestMapping(method = RequestMethod.GET, value = "/hotels")
     public List<HotelDto> getHotels() {
         return hotelMapper.mapToHotelDtoList(hotelService.getAllHotels());
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "hotelId/{hotelId}")
+    public HotelDto getHotelById(@PathVariable Long hotelId) throws TravelAgencyNotFoundException{
+        return hotelMapper.mapToHotelDto(hotelService.getHotelById(hotelId).orElseThrow(TravelAgencyNotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/hotelName/{hotelName}")

@@ -34,21 +34,53 @@ public class Flight {
     @Column(name = "returnDay")
     private LocalDate returnDate;
 
+    @Column(name = "flightNumber")
+    private String flightNumber;
+
     @NotNull
     @Column(name = "price")
-    int price;
+    private int price;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return departure.equals(flight.departure) &&
-                arrival.equals(flight.arrival);
+        return Objects.equals(departure, flight.departure) &&
+                Objects.equals(arrival, flight.arrival) &&
+                Objects.equals(flightNumber, flight.flightNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departure, arrival);
+        return Objects.hash(departure, arrival, flightNumber);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
+    }
+
+    public void setDepartureDate(LocalDate departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

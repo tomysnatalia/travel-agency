@@ -1,12 +1,12 @@
 package com.crud.travel.agency.service;
 
-import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HotelService {
@@ -22,6 +22,9 @@ public class HotelService {
         return hotelRepository.save(hotel);
     }
 
+    public Optional<Hotel> getHotelById(Long id) {
+        return hotelRepository.findById(id);
+    }
     public void deleteHotel (final Long id) {
         hotelRepository.deleteById(id);
     }

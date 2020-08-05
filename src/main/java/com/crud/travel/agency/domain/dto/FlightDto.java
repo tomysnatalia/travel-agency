@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -19,6 +17,7 @@ public class FlightDto {
     private String arrival;
     private LocalDate departureDate;
     private LocalDate returnDate;
+    private String flightNumber;
     int price;
 
 
@@ -27,12 +26,14 @@ public class FlightDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FlightDto flightDto = (FlightDto) o;
-        return departure.equals(flightDto.departure) &&
-                arrival.equals(flightDto.arrival);
+        return Objects.equals(departure, flightDto.departure) &&
+                Objects.equals(arrival, flightDto.arrival) &&
+                Objects.equals(flightNumber, flightDto.flightNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departure, arrival);
+        return Objects.hash(departure, arrival, flightNumber);
     }
 }
+

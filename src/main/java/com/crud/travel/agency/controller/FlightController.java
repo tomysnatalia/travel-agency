@@ -2,6 +2,7 @@ package com.crud.travel.agency.controller;
 
 import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.dto.FlightDto;
+import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.FlightMapper;
 import com.crud.travel.agency.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class FlightController {
         return flightMapper.mapToFlightDtoList(flightService.getAllFlights());
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/flightId/{id}")
+    public FlightDto getFlightById(@PathVariable Long id) throws TravelAgencyNotFoundException {
+        return flightMapper.mapToFlightDto(flightService.getFlightById(id));
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/departure/{departure}")
     public List<FlightDto> getDeparture(@PathVariable String departure)  {
         return flightMapper.mapToFlightDtoList(flightService.getFlightByDeparture(departure));
@@ -50,5 +56,10 @@ public class FlightController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/flight/{id}")
     public void deleteFlight(@PathVariable Long id) {
         flightService.deleteFlight(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/flightNumber/{flightNumber}")
+    public List<FlightDto> getFlightsByNumber(@PathVariable String flightNumber) {
+        return flightMapper.mapToFlightDtoList(flightService.getFlightByFlightNumber(flightNumber));
     }
 }
