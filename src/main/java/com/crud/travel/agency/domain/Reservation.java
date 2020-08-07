@@ -1,11 +1,8 @@
 package com.crud.travel.agency.domain;
 
-import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
-import com.crud.travel.agency.service.ReservationService;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,7 +12,21 @@ import java.util.Objects;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "reservation")
+
+@NamedNativeQueries ({
+
+        @NamedNativeQuery(name = "Reservation.getHotelPrice",
+                query = "Update reservation set hotel_price = ((select duration * adult from hotels where hotel_id = id) * (adults)+ (select duration * kid from hotels where hotel_id = id) * (kids));",
+                resultClass = Reservation.class),
+
+        @NamedNativeQuery(name = "Reservation.getHotelPriceWithFlight",
+                query = "Update reservation set hotel_price_with_flight = ((select (adults + kids) * price from flights where flight_id = id) + hotel_price);",
+                resultClass = Reservation.class)
+
+        })
+
+@Entity
+@Table (name = "reservation")
 public class Reservation {
 
     @Id
@@ -23,13 +34,11 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "flight_id")
-    private Flight flight;
+    @Column(name = "flight_id")
+    private Long flight;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "hotel_id")
-    private Hotel hotel;
+    @Column(name = "hotel_id")
+    private Long hotelId;
 
     @Column(name = "name")
     private String name;
@@ -49,7 +58,7 @@ public class Reservation {
     @Column(name = "kids")
     private int numberOfKids;
 
-    @Column(name = "price")
+    @Column(name = "hotelPrice")
     private int hotelPrice;
 
     @Column(name = "deposit")
@@ -58,13 +67,13 @@ public class Reservation {
     @Column(name = "paymentStatus")
     private boolean paymentStatus;
 
-   // @Column(name = "depositStatus")
-   // private boolean paymentDepositStatus;
+    @Column(name = "depositStatus")
+    private boolean paymentDepositStatus;
 
     @Column(name = "paymentday")
     private LocalDate paymentDate;
 
-    @Column(name = "totalPrice")
+    @Column(name = "hotel_price_with_flight")
     private int hotelPriceWithFlight;
 
     @Override
@@ -72,26 +81,24 @@ public class Reservation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservation that = (Reservation) o;
-        return id.equals(that.id) &&
-                flight.equals(that.flight) &&
-                hotel.equals(that.hotel);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, flight, hotel);
+        return Objects.hash(id);
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setFlight(Flight flight) {
+    public void setFlight(Long flight) {
         this.flight = flight;
     }
 
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
+    public void setHotel(Long hotelId) {
+        this.hotelId = hotelId;
     }
 
     public void setName(String name) {
@@ -110,12 +117,16 @@ public class Reservation {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setHotelPrice(int hotelPrice) {
-        this.hotelPrice = hotelPrice;
+    public void setNumberOfAdults(int numberOfAdults) {
+        this.numberOfAdults = numberOfAdults;
     }
 
-    public void setHotelPriceWithFlight(int hotelPriceWithFlight) {
-        this.hotelPriceWithFlight = hotelPriceWithFlight;
+    public void setNumberOfKids(int numberOfKids) {
+        this.numberOfKids = numberOfKids;
+    }
+
+    public void setTotalHotelPrice(int hotelPrice) {
+        this.hotelPrice = hotelPrice;
     }
 
     public void setDeposit(int deposit) {
@@ -126,63 +137,17 @@ public class Reservation {
         this.paymentStatus = paymentStatus;
     }
 
-   // public void setPaymentDepositStatus(boolean paymentDepositStatus) {
-   //     this.paymentDepositStatus = paymentDepositStatus;
-   // }
+    public void setPaymentDepositStatus(boolean paymentDepositStatus) {
+        this.paymentDepositStatus = paymentDepositStatus;
+    }
 
     public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
 
-    public void setNumberOfAdults(int numberOfAdults) {
-        this.numberOfAdults = numberOfAdults;
+    public void setHotelPriceWithFlight(int hotelPriceWithFlight) {
+        this.hotelPriceWithFlight = hotelPriceWithFlight;
     }
 
-    public void setNumberOfKids(int numberOfKids) {
-        this.numberOfKids = numberOfKids;
-    }
-
-
-    public int adultPrice() throws TravelAgencyNotFoundException {
-        return ((hotel.getDuration() * hotel.getPricePerNightForAdult()) * numberOfAdults);
-    }
-
-    public int kidPrice() {
-        return ((hotel.getDuration() * hotel.getPricePerNightForKid()) * numberOfKids);
-    }
-
-    public int totalPrice() throws TravelAgencyNotFoundException{
-        return adultPrice() + kidPrice();
-    }
-
-    public int adultPriceWithFlight() {
-        return ((hotel.getDuration() * hotel.getPricePerNightForAdult()) * (numberOfAdults * numberOfAdults));
-    }
-
-    public int kidPriceWithFlight() {
-        return ((hotel.getDuration() * hotel.getPricePerNightForKid()) * (numberOfKids * numberOfKids));
-    }
-
-    public int totalPriceWithFlight() {
-        return adultPriceWithFlight() + kidPriceWithFlight();
-    }
-
-    public int hotelPrice() throws TravelAgencyNotFoundException {
-        if (numberOfKids == 0) {
-            adultPrice();
-        } else {
-            totalPrice();
-        }
-        return hotelPrice;
-    }
-
-    public int hotelPriceWithFlight(){
-        if(numberOfKids == 0) {
-            adultPriceWithFlight();
-        } else {
-            totalPriceWithFlight();
-        }
-        return hotelPriceWithFlight;
-    }
 }
 

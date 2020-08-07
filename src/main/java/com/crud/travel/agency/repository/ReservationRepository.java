@@ -2,13 +2,16 @@ package com.crud.travel.agency.repository;
 
 import com.crud.travel.agency.domain.Reservation;
 import com.crud.travel.agency.interfaces.ReservationInterface;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Repository
 public interface ReservationRepository extends CrudRepository <Reservation, Long>, ReservationInterface {
 
@@ -33,6 +36,12 @@ public interface ReservationRepository extends CrudRepository <Reservation, Long
 
     @Override
     List<Reservation> findByPaymentStatus (boolean paymentStatus);
+
+    @Query(nativeQuery = true)
+    Reservation getHotelPrice();
+
+    @Query(nativeQuery = true)
+    Reservation getHotelPriceWithFlight();
 
 
 

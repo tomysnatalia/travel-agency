@@ -18,7 +18,7 @@ public class Flight {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long Id;
 
     @NotNull
     @Column(name = "departures")
@@ -57,7 +57,7 @@ public class Flight {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = Id;
     }
 
     public void setDeparture(String departure) {

@@ -15,8 +15,8 @@ import java.util.Objects;
 
 public class ReservationDto {
     private Long id;
-    private Flight flight;
-    private Hotel hotel;
+    private Long flight;
+    private Long hotelId;
 
     private String name;
     private String surname;
@@ -27,7 +27,7 @@ public class ReservationDto {
     private int hotelPrice;
     private int deposit;
     private boolean paymentStatus;
-    //private boolean paymentDepositStatus;
+    private boolean paymentDepositStatus;
     private LocalDate paymentDate;
     private int hotelPriceWithFlight;
 
@@ -38,11 +38,11 @@ public class ReservationDto {
         ReservationDto that = (ReservationDto) o;
         return id.equals(that.id) &&
                 flight.equals(that.flight) &&
-                hotel.equals(that.hotel);
+                hotelId.equals(that.hotelId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, flight, hotel);
+        return Objects.hash(id, flight, hotelId);
     }
 }

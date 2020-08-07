@@ -9,7 +9,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
-
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +18,7 @@ public class Hotel {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long hotelId;
+    private Long id;
 
     @NotNull
     @Column(name = "hotelName")
@@ -74,7 +73,7 @@ public class Hotel {
     }
 
     public void setId(Long hotelId) {
-        this.hotelId = hotelId;
+        this.id = id;
     }
 
     public void setHotelName(String hotelName) {
@@ -112,4 +111,13 @@ public class Hotel {
     public void setDuration(int duration) {
         this.duration = duration;
     }
+
+    public int getAdultPriceForDuration() {
+        return getDuration() * getPricePerNightForAdult();
+    }
+
+    public int getKidPriceForDuration() {
+        return getDuration() * getPricePerNightForKid();
+    }
+
 }

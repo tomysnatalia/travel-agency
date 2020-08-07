@@ -1,7 +1,5 @@
 package com.crud.travel.agency.controller;
 
-import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
@@ -25,11 +23,6 @@ public class ReservationController {
     @Autowired
     ReservationMapper reservationMapper;
 
-    @Autowired
-    FlightService flightService;
-
-    @Autowired
-    HotelService hotelService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/reservations")
     public List<ReservationDto> getAllReservations() {
@@ -59,27 +52,17 @@ public class ReservationController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/reservation")
     public void createReservation (@RequestBody ReservationDto reservationDto) {
-
         reservationService.saveReservation(reservationMapper.mapToReservation(reservationDto));
-        reservationDto.getHotel().getHotelId();
-
     }
 
-    @Transactional
     @RequestMapping(method = RequestMethod.PUT, value = "/reservation")
     public ReservationDto updateReservation (@RequestBody ReservationDto reservationDto) {
         return reservationMapper.mapToReservationDto(reservationService.saveReservation(reservationMapper.mapToReservation(reservationDto)));
     }
 
-
     @RequestMapping(method = RequestMethod.DELETE, value = "/reservation/{id}")
     public void deleteReservation (@PathVariable Long id) {
         reservationService.deleteById(id);
     }
-
-
-
-
-
 }
 

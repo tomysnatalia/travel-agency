@@ -13,7 +13,7 @@ public class HotelMapper {
 
     public Hotel mapToHotel (final HotelDto hotelDto) {
         return new Hotel(
-                hotelDto.getHotelId(),
+                hotelDto.getId(),
                 hotelDto.getHotelName(),
                 hotelDto.getLocationCountry(),
                 hotelDto.getLocationCity(),
@@ -27,7 +27,7 @@ public class HotelMapper {
 
     public HotelDto mapToHotelDto (final Hotel hotel) {
         return new HotelDto(
-                hotel.getHotelId(),
+                hotel.getId(),
                 hotel.getHotelName(),
                 hotel.getLocationCountry(),
                 hotel.getLocationCity(),
@@ -42,7 +42,7 @@ public class HotelMapper {
     public List<HotelDto> mapToHotelDtoList (final List<Hotel> hotelsList) {
         return hotelsList.stream()
                 .distinct()
-                .map(hList -> new HotelDto(hList.getHotelId(), hList.getHotelName(), hList.getLocationCountry(), hList.getLocationCity(), hList.getCloserAirport(),hList.getHotelOfficialRating(), hList.getPricePerNightForAdult(), hList.getPricePerNightForKid(), hList.getFoodOption(), hList.getDuration()))
+                .map(hList -> new HotelDto(hList.getId(), hList.getHotelName(), hList.getLocationCountry(), hList.getLocationCity(), hList.getCloserAirport(),hList.getHotelOfficialRating(), hList.getPricePerNightForAdult(), hList.getPricePerNightForKid(), hList.getFoodOption(), hList.getDuration()))
                 .collect(Collectors.toList());
     }
  }
