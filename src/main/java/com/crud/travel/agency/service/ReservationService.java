@@ -1,5 +1,6 @@
 package com.crud.travel.agency.service;
 
+import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.domain.Reservation;
 import com.crud.travel.agency.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,7 @@ public class ReservationService {
     public List<Reservation> findByPaymentStatus(boolean paymentStatus) {
         return reservationRepository.findByPaymentStatus(paymentStatus);
     }
+
 
 }
 

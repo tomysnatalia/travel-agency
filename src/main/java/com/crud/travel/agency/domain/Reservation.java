@@ -15,15 +15,17 @@ import java.util.Objects;
 
 @NamedNativeQueries ({
 
-        @NamedNativeQuery(name = "Reservation.getHotelPrice",
+        @NamedNativeQuery(
+                name = "Reservation.getHotelPrice",
                 query = "Update reservation set hotel_price = ((select duration * adult from hotels where hotel_id = id) * (adults)+ (select duration * kid from hotels where hotel_id = id) * (kids));",
                 resultClass = Reservation.class),
 
-        @NamedNativeQuery(name = "Reservation.getHotelPriceWithFlight",
+        @NamedNativeQuery(
+                name = "Reservation.getHotelPriceWithFlight",
                 query = "Update reservation set hotel_price_with_flight = ((select (adults + kids) * price from flights where flight_id = id) + hotel_price);",
                 resultClass = Reservation.class)
 
-        })
+})
 
 @Entity
 @Table (name = "reservation")
@@ -148,6 +150,8 @@ public class Reservation {
     public void setHotelPriceWithFlight(int hotelPriceWithFlight) {
         this.hotelPriceWithFlight = hotelPriceWithFlight;
     }
+
+
 
 }
 

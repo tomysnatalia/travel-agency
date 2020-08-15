@@ -3,13 +3,10 @@ package com.crud.travel.agency.controller;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
-import com.crud.travel.agency.service.FlightService;
-import com.crud.travel.agency.service.HotelService;
 import com.crud.travel.agency.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
