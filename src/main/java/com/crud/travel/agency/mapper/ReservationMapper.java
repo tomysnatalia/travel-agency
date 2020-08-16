@@ -12,8 +12,8 @@ public class ReservationMapper {
 
     public Reservation mapToReservation (final ReservationDto reservationDto) {
         return new Reservation(
-                reservationDto.getId(),
-                reservationDto.getFlight(),
+                reservationDto.getReservationId(),
+                reservationDto.getFlightId(),
                 reservationDto.getHotelId(),
                 reservationDto.getName(),
                 reservationDto.getSurname(),
@@ -31,8 +31,8 @@ public class ReservationMapper {
 
     public ReservationDto mapToReservationDto (final Reservation reservation) {
         return new ReservationDto(
-                reservation.getId(),
-                reservation.getFlight(),
+                reservation.getReservationId(),
+                reservation.getFlightId(),
                 reservation.getHotelId(),
                 reservation.getName(),
                 reservation.getSurname(),
@@ -51,7 +51,7 @@ public class ReservationMapper {
     public List<ReservationDto> mapToReservationDtoList (final List<Reservation> reservationList) {
         return reservationList.stream()
                 .distinct()
-                .map(rl -> new ReservationDto(rl.getId(), rl.getFlight(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
+                .map(rl -> new ReservationDto(rl.getReservationId(), rl.getFlightId(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
                         rl.getHotelPrice(), rl.getDeposit(), rl.isPaymentStatus(), rl.isPaymentDepositStatus(), rl.getPaymentDate(), rl.getHotelPriceWithFlight()))
                 .collect(Collectors.toList());
     }

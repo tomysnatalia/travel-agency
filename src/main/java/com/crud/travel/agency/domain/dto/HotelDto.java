@@ -11,7 +11,7 @@ import java.util.Objects;
 @Getter
 public class HotelDto {
 
-    private Long Id;
+    private Long hotelId;
     private String hotelName;
     private String locationCountry;
     private String locationCity;

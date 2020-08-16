@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 
 public class ReservationDto {
-    private Long id;
-    private Long flight;
+    private Long reservationId;
+    private Long flightId;
     private Long hotelId;
 
     private String name;
@@ -36,13 +36,17 @@ public class ReservationDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ReservationDto that = (ReservationDto) o;
-        return id.equals(that.id) &&
-                flight.equals(that.flight) &&
-                hotelId.equals(that.hotelId);
+        return reservationId.equals(that.reservationId) &&
+                flightId.equals(that.flightId) &&
+                hotelId.equals(that.hotelId) &&
+                name.equals(that.name) &&
+                surname.equals(that.surname) &&
+                email.equals(that.email) &&
+                phoneNumber.equals(that.phoneNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, flight, hotelId);
+        return Objects.hash(reservationId, flightId, hotelId, name, surname, email, phoneNumber);
     }
 }
