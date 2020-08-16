@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class Hotel {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long hotelId;
 
     @NotNull
     @Column(name = "hotelName")
@@ -73,7 +72,7 @@ public class Hotel {
     }
 
     public void setId(Long hotelId) {
-        this.id = id;
+        this.hotelId = hotelId;
     }
 
     public void setHotelName(String hotelName) {

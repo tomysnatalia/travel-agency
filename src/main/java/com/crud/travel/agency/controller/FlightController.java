@@ -1,6 +1,5 @@
 package com.crud.travel.agency.controller;
 
-import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.FlightMapper;
@@ -8,10 +7,9 @@ import com.crud.travel.agency.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+//@CrossOrigin("*")
 @RestController
 @RequestMapping ("/v3")
 public class FlightController {

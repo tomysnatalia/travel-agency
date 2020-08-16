@@ -37,7 +37,7 @@ public class Reservation {
     private Long id;
 
     @Column(name = "flight_id")
-    private Long flight;
+    private Long flightId;
 
     @Column(name = "hotel_id")
     private Long hotelId;
@@ -95,8 +95,8 @@ public class Reservation {
         this.id = id;
     }
 
-    public void setFlight(Long flight) {
-        this.flight = flight;
+    public void setFlight(Long flightId) {
+        this.flightId = flightId;
     }
 
     public void setHotel(Long hotelId) {
