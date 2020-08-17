@@ -50,9 +50,9 @@ public class ReservationMapper {
 
     public List<ReservationDto> mapToReservationDtoList (final List<Reservation> reservationList) {
         return reservationList.stream()
-                .distinct()
                 .map(rl -> new ReservationDto(rl.getReservationId(), rl.getFlightId(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
                         rl.getHotelPrice(), rl.getDeposit(), rl.isPaymentStatus(), rl.isPaymentDepositStatus(), rl.getPaymentDate(), rl.getHotelPriceWithFlight()))
+                .distinct()
                 .collect(Collectors.toList());
     }
 }

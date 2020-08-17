@@ -17,7 +17,6 @@ public class Flight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", insertable = false, updatable = false)
     private Long flightId;
 
     @NotNull
@@ -37,7 +36,6 @@ public class Flight {
     @Column(name = "flightNumber")
     private String flightNumber;
 
-    @NotNull
     @Column(name = "price")
     private int price;
 

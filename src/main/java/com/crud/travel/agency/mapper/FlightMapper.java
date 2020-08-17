@@ -34,8 +34,8 @@ public class FlightMapper {
 
     public List<FlightDto> mapToFlightDtoList(final List<Flight> flightsList) {
         return flightsList.stream()
-                .distinct()
                 .map(flight -> new FlightDto(flight.getFlightId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
+                .distinct()
                 .collect(Collectors.toList());
     }
 

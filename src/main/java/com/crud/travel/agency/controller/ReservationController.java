@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v3")
 public class ReservationController {
@@ -20,7 +20,6 @@ public class ReservationController {
 
     @Autowired
     ReservationMapper reservationMapper;
-
 
     @RequestMapping(method = RequestMethod.GET, value = "/reservations")
     public List<ReservationDto> getAllReservations() {
