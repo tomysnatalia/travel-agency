@@ -1,6 +1,7 @@
 package com.crud.travel.agency.interfaces;
 
 import com.crud.travel.agency.domain.Flight;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
