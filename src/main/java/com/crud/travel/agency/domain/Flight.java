@@ -16,8 +16,8 @@ import java.util.Objects;
 public class Flight {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", insertable = false, updatable = false)
     private Long flightId;
 
     @NotNull
