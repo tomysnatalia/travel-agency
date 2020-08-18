@@ -1,7 +1,5 @@
 package com.crud.travel.agency.domain.dto;
 
-import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.Hotel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
