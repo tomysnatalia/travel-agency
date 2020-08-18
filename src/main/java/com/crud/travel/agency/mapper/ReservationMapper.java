@@ -12,7 +12,7 @@ public class ReservationMapper {
 
     public Reservation mapToReservation (final ReservationDto reservationDto) {
         return new Reservation(
-                reservationDto.getReservationId(),
+                reservationDto.getId(),
                 reservationDto.getFlightId(),
                 reservationDto.getHotelId(),
                 reservationDto.getName(),
@@ -31,7 +31,7 @@ public class ReservationMapper {
 
     public ReservationDto mapToReservationDto (final Reservation reservation) {
         return new ReservationDto(
-                reservation.getReservationId(),
+                reservation.getId(),
                 reservation.getFlightId(),
                 reservation.getHotelId(),
                 reservation.getName(),
@@ -50,7 +50,7 @@ public class ReservationMapper {
 
     public List<ReservationDto> mapToReservationDtoList (final List<Reservation> reservationList) {
         return reservationList.stream()
-                .map(rl -> new ReservationDto(rl.getReservationId(), rl.getFlightId(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
+                .map(rl -> new ReservationDto(rl.getId(), rl.getFlightId(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
                         rl.getHotelPrice(), rl.getDeposit(), rl.isPaymentStatus(), rl.isPaymentDepositStatus(), rl.getPaymentDate(), rl.getHotelPriceWithFlight()))
                 .distinct()
                 .collect(Collectors.toList());

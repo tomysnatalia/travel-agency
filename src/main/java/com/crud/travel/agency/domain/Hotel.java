@@ -17,7 +17,7 @@ public class Hotel {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long hotelId;
+    private Long id;
 
     @NotNull
     @Column(name = "hotelName")
@@ -71,8 +71,8 @@ public class Hotel {
         return Objects.hash(hotelName, locationCountry, locationCity);
     }
 
-    public void setId(Long hotelId) {
-        this.hotelId = hotelId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setHotelName(String hotelName) {

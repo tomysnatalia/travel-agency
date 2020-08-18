@@ -34,7 +34,7 @@ public class Reservation {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long reservationId;
+    private Long id;
 
     @Column(name = "flight_id")
     private Long flightId;
@@ -83,7 +83,7 @@ public class Reservation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservation that = (Reservation) o;
-        return reservationId.equals(that.reservationId) &&
+        return id.equals(that.id) &&
                 flightId.equals(that.flightId) &&
                 hotelId.equals(that.hotelId) &&
                 name.equals(that.name) &&
@@ -94,11 +94,11 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(reservationId, flightId, hotelId, name, surname, email, phoneNumber);
+        return Objects.hash(id, flightId, hotelId, name, surname, email, phoneNumber);
     }
 
-    public void setReservationId(Long reservationId) {
-        this.reservationId = reservationId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setFlight(Long flightId) {
