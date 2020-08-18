@@ -17,7 +17,7 @@ public class Flight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long flightId;
+    private Long id;
 
     @NotNull
     @Column(name = "departures")
@@ -54,8 +54,8 @@ public class Flight {
         return Objects.hash(departure, arrival, flightNumber);
     }
 
-    public void setId(Long flightId) {
-        this.flightId = flightId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setDeparture(String departure) {

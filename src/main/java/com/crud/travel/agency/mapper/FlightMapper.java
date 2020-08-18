@@ -12,7 +12,7 @@ public class FlightMapper {
 
     public Flight mapToFlight(final FlightDto flightDto){
         return new Flight(
-                flightDto.getFlightId(),
+                flightDto.getId(),
                 flightDto.getDeparture(),
                 flightDto.getArrival(),
                 flightDto.getDepartureDate(),
@@ -23,7 +23,7 @@ public class FlightMapper {
 
     public FlightDto mapToFlightDto(final Flight flight) {
         return new FlightDto(
-                flight.getFlightId(),
+                flight.getId(),
                 flight.getDeparture(),
                 flight.getArrival(),
                 flight.getDepartureDate(),
@@ -34,7 +34,7 @@ public class FlightMapper {
 
     public List<FlightDto> mapToFlightDtoList(final List<Flight> flightsList) {
         return flightsList.stream()
-                .map(flight -> new FlightDto(flight.getFlightId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
+                .map(flight -> new FlightDto(flight.getId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
                 .distinct()
                 .collect(Collectors.toList());
     }

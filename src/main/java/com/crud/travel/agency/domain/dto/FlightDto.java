@@ -12,7 +12,7 @@ import java.util.Objects;
 @Getter
 public class FlightDto {
 
-    private Long flightId;
+    private Long id;
     private String departure;
     private String arrival;
     private LocalDate departureDate;
