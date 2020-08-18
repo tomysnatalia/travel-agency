@@ -31,27 +31,25 @@ public class Hotel {
     @Column(name = "city")
     private String locationCity;
 
-    @NotNull
+
     @Column(name = "airport")
     private String closerAirport;
 
-    @NotNull
+
     @Column(name = "starsRating")
     private String hotelOfficialRating;
 
-    @NotNull
+
     @Column(name = "adult")
     private int pricePerNightForAdult;
 
-    @NotNull
+
     @Column(name = "kid")
     private int pricePerNightForKid;
 
-    @NotNull
     @Column(name = "foodOption")
     private String foodOption;
 
-    @NotNull
     @Column(name = "duration")
     private int duration;
 
