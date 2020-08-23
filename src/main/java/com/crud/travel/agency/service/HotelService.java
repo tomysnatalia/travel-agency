@@ -4,11 +4,10 @@ import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.repository.HotelRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Slf4j
 @AllArgsConstructor
@@ -17,10 +16,6 @@ public class HotelService {
     private final HotelRepository hotelRepository;
 
     public List<Hotel> getAllHotels() { return hotelRepository.findAll(); }
-
-    public Optional<Hotel> getHotelById(Long id) {
-        return hotelRepository.findById(id);
-    }
 
     public List<Hotel> findByHotelName (final String hotelName) {
         return hotelRepository.findByHotelName(hotelName);
