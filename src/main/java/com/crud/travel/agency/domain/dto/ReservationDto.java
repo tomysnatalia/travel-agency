@@ -20,14 +20,14 @@ public class ReservationDto {
     private String surname;
     private String email;
     private String phoneNumber;
-    private int numberOfAdults;
-    private int numberOfKids;
-    private int hotelPrice;
-    private int deposit;
-    private boolean paymentStatus;
-    private boolean paymentDepositStatus;
+    private Long numberOfAdults;
+    private Long numberOfKids;
+    private Long hotelPrice;
+    private Long deposit;
+    private String paymentStatus;
+    private String paymentDepositStatus;
     private LocalDate paymentDate;
-    private int hotelPriceWithFlight;
+    private Long hotelPriceWithFlight;
 
     @Override
     public boolean equals(Object o) {

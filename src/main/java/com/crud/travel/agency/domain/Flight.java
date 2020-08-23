@@ -37,7 +37,7 @@ public class Flight {
     private String flightNumber;
 
     @Column(name = "price")
-    private int price;
+    private Long price;
 
     @Override
     public boolean equals(Object o) {
@@ -78,7 +78,7 @@ public class Flight {
         this.flightNumber = flightNumber;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 }

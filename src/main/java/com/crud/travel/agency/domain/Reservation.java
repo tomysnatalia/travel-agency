@@ -55,28 +55,28 @@ public class Reservation {
     private String phoneNumber;
 
     @Column(name = "adults")
-    private int numberOfAdults;
+    private Long numberOfAdults;
 
     @Column(name = "kids")
-    private int numberOfKids;
+    private Long numberOfKids;
 
     @Column(name = "hotelPrice")
-    private int hotelPrice;
+    private Long hotelPrice;
 
     @Column(name = "deposit")
-    private int deposit;
+    private Long deposit;
 
     @Column(name = "paymentStatus")
-    private boolean paymentStatus;
+    private String paymentStatus;
 
     @Column(name = "depositStatus")
-    private boolean paymentDepositStatus;
+    private String paymentDepositStatus;
 
     @Column(name = "paymentday")
     private LocalDate paymentDate;
 
     @Column(name = "hotel_price_with_flight")
-    private int hotelPriceWithFlight;
+    private Long hotelPriceWithFlight;
 
     @Override
     public boolean equals(Object o) {
@@ -125,27 +125,27 @@ public class Reservation {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setNumberOfAdults(int numberOfAdults) {
+    public void setNumberOfAdults(Long numberOfAdults) {
         this.numberOfAdults = numberOfAdults;
     }
 
-    public void setNumberOfKids(int numberOfKids) {
+    public void setNumberOfKids(Long numberOfKids) {
         this.numberOfKids = numberOfKids;
     }
 
-    public void setTotalHotelPrice(int hotelPrice) {
+    public void setTotalHotelPrice(Long hotelPrice) {
         this.hotelPrice = hotelPrice;
     }
 
-    public void setDeposit(int deposit) {
+    public void setDeposit(Long deposit) {
         this.deposit = deposit;
     }
 
-    public void setPaymentStatus(boolean paymentStatus) {
+    public void setPaymentStatus(String paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
-    public void setPaymentDepositStatus(boolean paymentDepositStatus) {
+    public void setPaymentDepositStatus(String paymentDepositStatus) {
         this.paymentDepositStatus = paymentDepositStatus;
     }
 
@@ -153,7 +153,7 @@ public class Reservation {
         this.paymentDate = paymentDate;
     }
 
-    public void setHotelPriceWithFlight(int hotelPriceWithFlight) {
+    public void setHotelPriceWithFlight(Long hotelPriceWithFlight) {
         this.hotelPriceWithFlight = hotelPriceWithFlight;
     }
 

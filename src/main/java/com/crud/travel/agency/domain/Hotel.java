@@ -41,17 +41,17 @@ public class Hotel {
 
 
     @Column(name = "adult")
-    private int pricePerNightForAdult;
+    private Long pricePerNightForAdult;
 
 
     @Column(name = "kid")
-    private int pricePerNightForKid;
+    private Long pricePerNightForKid;
 
     @Column(name = "foodOption")
     private String foodOption;
 
     @Column(name = "duration")
-    private int duration;
+    private Long duration;
 
 
     @Override
@@ -93,11 +93,11 @@ public class Hotel {
         this.hotelOfficialRating = hotelOfficialRating;
     }
 
-    public void setPricePerNightForAdult(int pricePerNightForAdult) {
+    public void setPricePerNightForAdult(Long pricePerNightForAdult) {
         this.pricePerNightForAdult = pricePerNightForAdult;
     }
 
-    public void setPricePerNightForKid(int pricePerNightForKid) {
+    public void setPricePerNightForKid(Long pricePerNightForKid) {
         this.pricePerNightForKid = pricePerNightForKid;
     }
 
@@ -105,15 +105,15 @@ public class Hotel {
         this.foodOption = foodOption;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(Long duration) {
         this.duration = duration;
     }
 
-    public int getAdultPriceForDuration() {
+    public Long getAdultPriceForDuration() {
         return getDuration() * getPricePerNightForAdult();
     }
 
-    public int getKidPriceForDuration() {
+    public Long getKidPriceForDuration() {
         return getDuration() * getPricePerNightForKid();
     }
 

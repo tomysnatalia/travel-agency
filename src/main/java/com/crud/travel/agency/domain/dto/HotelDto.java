@@ -18,10 +18,10 @@ public class HotelDto {
     private String closerAirport;
     private String hotelOfficialRating;
 
-    private int pricePerNightForAdult;
-    private int pricePerNightForKid;
+    private Long pricePerNightForAdult;
+    private Long pricePerNightForKid;
     private String foodOption;
-    private int duration;
+    private Long duration;
 
     @Override
     public boolean equals(Object o) {

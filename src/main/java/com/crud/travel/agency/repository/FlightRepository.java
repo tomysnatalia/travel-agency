@@ -1,7 +1,6 @@
 package com.crud.travel.agency.repository;
 
 import com.crud.travel.agency.domain.Flight;
-
 import com.crud.travel.agency.interfaces.FlightInterface;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -31,7 +30,6 @@ public interface FlightRepository extends CrudRepository <Flight, Long>, FlightI
 
     @Override
     List<Flight> findByFlightNumber (String flightNumber);
-
 }
 
 

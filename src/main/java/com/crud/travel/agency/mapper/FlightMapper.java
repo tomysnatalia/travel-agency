@@ -2,12 +2,14 @@ package com.crud.travel.agency.mapper;
 
 import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.dto.FlightDto;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@AllArgsConstructor
 public class FlightMapper {
 
     public Flight mapToFlight(final FlightDto flightDto){
@@ -32,11 +34,19 @@ public class FlightMapper {
                 flight.getPrice());
     }
 
+    public List<Flight> mapToFlightList (final List <FlightDto>  flightDtoList) {
+        return flightDtoList.stream()
+                .map(this::mapToFlight)
+                .collect(Collectors.toList());
+    }
+
     public List<FlightDto> mapToFlightDtoList(final List<Flight> flightsList) {
         return flightsList.stream()
-                .map(flight -> new FlightDto(flight.getId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
-                .distinct()
+                .map(this::mapToFlightDto)
                 .collect(Collectors.toList());
+                //.map(flight -> new FlightDto(flight.getId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
+                //.distinct()
+                //.collect(Collectors.toList());
     }
 
 }

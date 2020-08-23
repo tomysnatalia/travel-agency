@@ -1,6 +1,5 @@
 package com.crud.travel.agency.repository;
 
-import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.interfaces.HotelInterface;
 import org.springframework.data.repository.CrudRepository;

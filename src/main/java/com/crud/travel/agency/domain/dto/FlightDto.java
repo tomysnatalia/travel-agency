@@ -18,7 +18,7 @@ public class FlightDto {
     private LocalDate departureDate;
     private LocalDate returnDate;
     private String flightNumber;
-    int price;
+    Long price;
 
 
     @Override
