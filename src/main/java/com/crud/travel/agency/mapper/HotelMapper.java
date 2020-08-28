@@ -50,8 +50,5 @@ public class HotelMapper {
         return hotelList.stream()
                 .map(this::mapToHotelDto)
                 .collect(Collectors.toList());
-                //.map(hList -> new HotelDto(hList.getId(), hList.getHotelName(), hList.getLocationCountry(), hList.getLocationCity(), hList.getCloserAirport(),hList.getHotelOfficialRating(), hList.getPricePerNightForAdult(), hList.getPricePerNightForKid(), hList.getFoodOption(), hList.getDuration()))
-                //.distinct()
-                //.collect(Collectors.toList());
     }
  }

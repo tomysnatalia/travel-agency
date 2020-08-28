@@ -60,9 +60,5 @@ public class ReservationMapper {
         return reservationList.stream()
                 .map(this::mapToReservationDto)
                 .collect(Collectors.toList());
-                //.map(rl -> new ReservationDto(rl.getId(), rl.getFlightId(), rl.getHotelId(), rl.getName(), rl.getSurname(), rl.getEmail(), rl.getPhoneNumber(), rl.getNumberOfAdults(), rl.getNumberOfKids(),
-                 //       rl.getHotelPrice(), rl.getDeposit(), rl.isPaymentStatus(), rl.isPaymentDepositStatus(), rl.getPaymentDate(), rl.getHotelPriceWithFlight()))
-                //.distinct()
-                //.collect(Collectors.toList());
     }
 }

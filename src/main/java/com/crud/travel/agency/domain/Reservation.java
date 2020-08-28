@@ -3,6 +3,7 @@ package com.crud.travel.agency.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -96,68 +98,6 @@ public class Reservation {
     public int hashCode() {
         return Objects.hash(id, flightId, hotelId, name, surname, email, phoneNumber);
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setFlight(Long flightId) {
-        this.flightId = flightId;
-    }
-
-    public void setHotel(Long hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setNumberOfAdults(Long numberOfAdults) {
-        this.numberOfAdults = numberOfAdults;
-    }
-
-    public void setNumberOfKids(Long numberOfKids) {
-        this.numberOfKids = numberOfKids;
-    }
-
-    public void setTotalHotelPrice(Long hotelPrice) {
-        this.hotelPrice = hotelPrice;
-    }
-
-    public void setDeposit(Long deposit) {
-        this.deposit = deposit;
-    }
-
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
-
-    public void setPaymentDepositStatus(String paymentDepositStatus) {
-        this.paymentDepositStatus = paymentDepositStatus;
-    }
-
-    public void setPaymentDate(LocalDate paymentDate) {
-        this.paymentDate = paymentDate;
-    }
-
-    public void setHotelPriceWithFlight(Long hotelPriceWithFlight) {
-        this.hotelPriceWithFlight = hotelPriceWithFlight;
-    }
-
-
 
 }
 

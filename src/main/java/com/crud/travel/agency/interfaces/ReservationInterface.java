@@ -1,7 +1,5 @@
 package com.crud.travel.agency.interfaces;
 
-import com.crud.travel.agency.domain.Flight;
-import com.crud.travel.agency.domain.Hotel;
 import com.crud.travel.agency.domain.Reservation;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +13,7 @@ public interface ReservationInterface {
 
     List<Reservation> findByPaymentDate (LocalDate paymentDate);
 
-    List<Reservation> findByPaymentStatus (boolean paymentStatus);
+    List<Reservation> findByPaymentStatus (String paymentStatus);
 
 
 }

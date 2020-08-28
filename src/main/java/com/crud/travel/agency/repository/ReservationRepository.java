@@ -32,7 +32,7 @@ public interface ReservationRepository extends CrudRepository <Reservation, Long
     List<Reservation> findByPaymentDate (LocalDate paymentDate);
 
     @Override
-    List<Reservation> findByPaymentStatus (boolean paymentStatus);
+    List<Reservation> findByPaymentStatus (String paymentStatus);
 
     @Query(nativeQuery = true)
     @Modifying

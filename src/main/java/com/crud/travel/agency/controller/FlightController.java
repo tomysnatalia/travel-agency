@@ -6,7 +6,6 @@ import com.crud.travel.agency.mapper.FlightMapper;
 import com.crud.travel.agency.service.FlightService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping ("/v3")
+@RequestMapping ("/flight")
 public class FlightController {
     private final FlightService flightService;
     private final FlightMapper flightMapper;
@@ -25,32 +24,32 @@ public class FlightController {
         return flightMapper.mapToFlightDtoList(flightService.getAllFlights());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/flightId/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
     public FlightDto getFlightById(@PathVariable Long id) throws TravelAgencyNotFoundException {
-        return flightMapper.mapToFlightDto(flightService.getFlightById(id)); }
+        return flightMapper.mapToFlightDto(flightService.findById(id)); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/departure/{departure}")
-    public List<FlightDto> getDeparture(@PathVariable String departure)  {
-        return flightMapper.mapToFlightDtoList(flightService.getFlightByDeparture(departure)); }
+    public List<FlightDto> getFlightByDeparture(@PathVariable String departure)  {
+        return flightMapper.mapToFlightDtoList(flightService.findByDeparture(departure)); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/arrival/{arrival}")
-    public List<FlightDto> getArrival (@PathVariable String arrival) {
-        return flightMapper.mapToFlightDtoList(flightService.getFlightByArrival(arrival)); }
+    public List<FlightDto> getFlightByArrival(@PathVariable String arrival) {
+        return flightMapper.mapToFlightDtoList(flightService.findByArrival(arrival)); }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/flight")
+    @RequestMapping(method = RequestMethod.POST, value = "/create")
     public void createFlight(@RequestBody FlightDto flightDto) {
         flightService.saveFlight(flightMapper.mapToFlight(flightDto)); }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/flight")
+    @RequestMapping(method = RequestMethod.PUT, value = "/update")
     public FlightDto updateFlight (@RequestBody FlightDto flightDto) {
         return flightMapper.mapToFlightDto(flightService.saveFlight(flightMapper.mapToFlight(flightDto))); }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/flight/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
     public void deleteFlight(@PathVariable Long id) {
         flightService.deleteFlight(id);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/flightNumber/{flightNumber}")
-    public List<FlightDto> getFlightsByNumber(@PathVariable String flightNumber) {
-        return flightMapper.mapToFlightDtoList(flightService.getFlightByFlightNumber(flightNumber)); }
+    public List<FlightDto> getFlightByNumber(@PathVariable String flightNumber) {
+        return flightMapper.mapToFlightDtoList(flightService.findByFlightNumber(flightNumber)); }
 }

@@ -3,12 +3,14 @@ package com.crud.travel.agency.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "hotels")
@@ -69,52 +71,19 @@ public class Hotel {
         return Objects.hash(hotelName, locationCountry, locationCity);
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "id=" + id +
+                ", hotelName='" + hotelName + '\'' +
+                ", locationCountry='" + locationCountry + '\'' +
+                ", locationCity='" + locationCity + '\'' +
+                ", closerAirport='" + closerAirport + '\'' +
+                ", hotelOfficialRating='" + hotelOfficialRating + '\'' +
+                ", pricePerNightForAdult=" + pricePerNightForAdult +
+                ", pricePerNightForKid=" + pricePerNightForKid +
+                ", foodOption='" + foodOption + '\'' +
+                ", duration=" + duration +
+                '}';
     }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-
-    public void setLocationCountry(String locationCountry) {
-        this.locationCountry = locationCountry;
-    }
-
-    public void setLocationCity(String locationCity) {
-        this.locationCity = locationCity;
-    }
-
-    public void setCloserAirport(String closerAirport) {
-        this.closerAirport = closerAirport;
-    }
-
-    public void setHotelOfficialRating(String hotelOfficialRating) {
-        this.hotelOfficialRating = hotelOfficialRating;
-    }
-
-    public void setPricePerNightForAdult(Long pricePerNightForAdult) {
-        this.pricePerNightForAdult = pricePerNightForAdult;
-    }
-
-    public void setPricePerNightForKid(Long pricePerNightForKid) {
-        this.pricePerNightForKid = pricePerNightForKid;
-    }
-
-    public void setFoodOption(String foodOption) {
-        this.foodOption = foodOption;
-    }
-
-    public void setDuration(Long duration) {
-        this.duration = duration;
-    }
-
-    public Long getAdultPriceForDuration() {
-        return getDuration() * getPricePerNightForAdult();
-    }
-
-    public Long getKidPriceForDuration() {
-        return getDuration() * getPricePerNightForKid();
-    }
-
 }

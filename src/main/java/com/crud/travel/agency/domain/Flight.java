@@ -3,6 +3,7 @@ package com.crud.travel.agency.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "flights")
@@ -54,31 +56,16 @@ public class Flight {
         return Objects.hash(departure, arrival, flightNumber);
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setDeparture(String departure) {
-        this.departure = departure;
-    }
-
-    public void setArrival(String arrival) {
-        this.arrival = arrival;
-    }
-
-    public void setDepartureDate(LocalDate departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
-    }
-
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
-    }
-
-    public void setPrice(Long price) {
-        this.price = price;
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "id=" + id +
+                ", departure='" + departure + '\'' +
+                ", arrival='" + arrival + '\'' +
+                ", departureDate=" + departureDate +
+                ", returnDate=" + returnDate +
+                ", flightNumber='" + flightNumber + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

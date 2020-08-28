@@ -1,6 +1,7 @@
 package com.crud.travel.agency.service;
 
 import com.crud.travel.agency.domain.Hotel;
+import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.repository.HotelRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,8 @@ public class HotelService {
     private final HotelRepository hotelRepository;
 
     public List<Hotel> getAllHotels() { return hotelRepository.findAll(); }
+
+    public Hotel findById(final Long id) throws TravelAgencyNotFoundException { return hotelRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
     public List<Hotel> findByHotelName (final String hotelName) {
         return hotelRepository.findByHotelName(hotelName);

@@ -44,9 +44,5 @@ public class FlightMapper {
         return flightsList.stream()
                 .map(this::mapToFlightDto)
                 .collect(Collectors.toList());
-                //.map(flight -> new FlightDto(flight.getId(), flight.getDeparture(), flight.getArrival(), flight.getDepartureDate(), flight.getReturnDate(), flight.getFlightNumber(),flight.getPrice()))
-                //.distinct()
-                //.collect(Collectors.toList());
     }
-
 }

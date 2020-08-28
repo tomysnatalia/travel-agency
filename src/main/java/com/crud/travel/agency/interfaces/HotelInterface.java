@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 public interface HotelInterface {
 
+
+
     List<Hotel> findByHotelName (String hotelName);
 
     List<Hotel> findByLocationCity (String locationCity);

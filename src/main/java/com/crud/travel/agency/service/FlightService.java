@@ -19,15 +19,15 @@ public class FlightService {
         return flightRepository.findAll();
     }
 
-    public List<Flight> getFlightByDeparture(final String departure) { return flightRepository.findByDeparture(departure); }
+    public List<Flight> findByDeparture(final String departure) { return flightRepository.findByDeparture(departure); }
 
-    public List<Flight> getFlightByArrival(final String arrival) {
+    public List<Flight> findByArrival(final String arrival) {
         return flightRepository.findByArrival(arrival);
     }
 
-    public List<Flight> getFlightByFlightNumber(final String flightNumber) { return flightRepository.findByFlightNumber(flightNumber); }
+    public List<Flight> findByFlightNumber(final String flightNumber) { return flightRepository.findByFlightNumber(flightNumber); }
 
-    public Flight getFlightById(Long id) throws TravelAgencyNotFoundException { return flightRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
+    public Flight findById(final Long id) throws TravelAgencyNotFoundException { return flightRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
     public Flight saveFlight (final Flight flight) {
         return flightRepository.save(flight);

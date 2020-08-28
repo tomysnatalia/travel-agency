@@ -1,15 +1,14 @@
 package com.crud.travel.agency.service;
 
 import com.crud.travel.agency.domain.Reservation;
+import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.repository.ReservationRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @AllArgsConstructor
@@ -21,9 +20,7 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
-    public Optional<Reservation> getReservationById(final Long id) {
-        return reservationRepository.findById(id);
-    }
+    public Reservation getReservationById(final Long id) throws TravelAgencyNotFoundException { return reservationRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
     public List<Reservation> findBySurname(String surname) {
         return reservationRepository.findBySurname(surname);
@@ -31,7 +28,7 @@ public class ReservationService {
 
     public List<Reservation> findByPaymentDate(LocalDate paymentDay) { return reservationRepository.findByPaymentDate(paymentDay); }
 
-    public List<Reservation> findByPaymentStatus(boolean paymentStatus) { return reservationRepository.findByPaymentStatus(paymentStatus); }
+    public List<Reservation> findByPaymentStatus(String paymentStatus) { return reservationRepository.findByPaymentStatus(paymentStatus); }
 
     public Reservation saveReservation(final Reservation reservation) { return reservationRepository.save(reservation); }
 
