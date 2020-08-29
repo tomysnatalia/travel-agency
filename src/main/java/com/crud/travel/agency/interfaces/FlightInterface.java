@@ -13,7 +13,7 @@ public interface FlightInterface {
 
     List<Flight> findByArrival (String arrival);
 
-    List<Flight> findByFlightNumber (String flightNumber);
+    List<Flight> findByFlightNumber (Long flightNumber);
 
     List<Flight> findByDepartureDate(LocalDate departureDate);
 

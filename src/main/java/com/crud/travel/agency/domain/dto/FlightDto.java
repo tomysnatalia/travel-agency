@@ -16,7 +16,7 @@ public class FlightDto {
     private String arrival;
     private LocalDate departureDate;
     private LocalDate returnDate;
-    private String flightNumber;
+    private Long flightNumber;
     private Long price;
 
 
