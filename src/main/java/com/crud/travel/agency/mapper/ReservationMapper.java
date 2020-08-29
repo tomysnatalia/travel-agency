@@ -26,7 +26,7 @@ public class ReservationMapper {
                 reservationDto.getHotelPrice(),
                 reservationDto.getDeposit(),
                 reservationDto.getPaymentStatus(),
-                reservationDto.getPaymentDepositStatus(),
+                reservationDto.getDepositStatus(),
                 reservationDto.getPaymentDate(),
                 reservationDto.getHotelPriceWithFlight());
     }
@@ -45,7 +45,7 @@ public class ReservationMapper {
                 reservation.getHotelPrice(),
                 reservation.getDeposit(),
                 reservation.getPaymentStatus(),
-                reservation.getPaymentDepositStatus(),
+                reservation.getDepositStatus(),
                 reservation.getPaymentDate(),
                 reservation.getHotelPriceWithFlight());
     }

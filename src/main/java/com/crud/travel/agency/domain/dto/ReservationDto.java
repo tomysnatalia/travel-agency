@@ -25,7 +25,7 @@ public class ReservationDto {
     private Long hotelPrice;
     private Long deposit;
     private String paymentStatus;
-    private String paymentDepositStatus;
+    private String depositStatus;
     private LocalDate paymentDate;
     private Long hotelPriceWithFlight;
 

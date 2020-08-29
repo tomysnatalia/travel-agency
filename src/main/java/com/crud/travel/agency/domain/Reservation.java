@@ -71,8 +71,8 @@ public class Reservation {
     @Column(name = "paymentStatus")
     private String paymentStatus;
 
-    @Column(name = "depositStatus")
-    private String paymentDepositStatus;
+    @Column(name = "depositStatus",length = 3000)
+    private String depositStatus;
 
     @Column(name = "paymentday")
     private LocalDate paymentDate;
