@@ -16,7 +16,6 @@ import java.util.Objects;
 @NoArgsConstructor
 @Entity(name = "flights")
 public class Flight {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

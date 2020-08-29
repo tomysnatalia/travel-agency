@@ -15,7 +15,6 @@ import java.util.Objects;
 @NoArgsConstructor
 @Entity(name = "hotels")
 public class Hotel {
-
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)

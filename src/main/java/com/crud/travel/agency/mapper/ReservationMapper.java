@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@AllArgsConstructor
 @Component
+@AllArgsConstructor
 public class ReservationMapper {
 
     public Reservation mapToReservation (final ReservationDto reservationDto) {
@@ -48,12 +48,6 @@ public class ReservationMapper {
                 reservation.getDepositStatus(),
                 reservation.getPaymentDate(),
                 reservation.getHotelPriceWithFlight());
-    }
-
-    public List<Reservation> mapToReservationList (final List<ReservationDto> reservationDtoList) {
-        return reservationDtoList.stream()
-                .map(this::mapToReservation)
-                .collect(Collectors.toList());
     }
 
     public List<ReservationDto> mapToReservationDtoList (final List<Reservation> reservationList) {

@@ -40,12 +40,6 @@ public class HotelMapper {
                 hotel.getDuration());
     }
 
-    public List<Hotel> mapToHotelList (final List<HotelDto> hotelDtoList) {
-        return hotelDtoList.stream()
-                .map(this::mapToHotel)
-                .collect(Collectors.toList());
-    }
-
     public List<HotelDto> mapToHotelDtoList (final List<Hotel> hotelList) {
         return hotelList.stream()
                 .map(this::mapToHotelDto)

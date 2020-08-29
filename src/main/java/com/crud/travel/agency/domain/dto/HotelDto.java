@@ -10,14 +10,12 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 public class HotelDto {
-
     private Long id;
     private String hotelName;
     private String locationCountry;
     private String locationCity;
     private String closerAirport;
     private String hotelOfficialRating;
-
     private Long pricePerNightForAdult;
     private Long pricePerNightForKid;
     private String foodOption;

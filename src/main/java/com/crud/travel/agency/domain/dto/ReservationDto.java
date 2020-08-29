@@ -10,7 +10,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-
 public class ReservationDto {
     private Long id;
     private Long flightId;

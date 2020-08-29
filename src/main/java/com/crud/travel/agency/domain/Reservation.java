@@ -31,7 +31,6 @@ import java.util.Objects;
 
 @Entity(name = "reservation")
 public class Reservation {
-
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -70,7 +69,7 @@ public class Reservation {
     @Column(name = "paymentStatus")
     private String paymentStatus;
 
-    @Column(name = "depositStatus",length = 3000)
+    @Column(name = "depositStatus")
     private String depositStatus;
 
     @Column(name = "paymentday")
@@ -84,8 +83,7 @@ public class Reservation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservation that = (Reservation) o;
-        return id.equals(that.id) &&
-                flightId.equals(that.flightId) &&
+        return  flightId.equals(that.flightId) &&
                 hotelId.equals(that.hotelId) &&
                 name.equals(that.name) &&
                 surname.equals(that.surname) &&
@@ -95,7 +93,7 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, flightId, hotelId, name, surname, email, phoneNumber);
+        return Objects.hash(flightId, hotelId, name, surname, email, phoneNumber);
     }
 
     @Override

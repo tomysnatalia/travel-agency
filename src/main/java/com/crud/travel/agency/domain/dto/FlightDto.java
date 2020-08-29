@@ -11,14 +11,13 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 public class FlightDto {
-
     private Long id;
     private String departure;
     private String arrival;
     private LocalDate departureDate;
     private LocalDate returnDate;
     private String flightNumber;
-    Long price;
+    private Long price;
 
 
     @Override

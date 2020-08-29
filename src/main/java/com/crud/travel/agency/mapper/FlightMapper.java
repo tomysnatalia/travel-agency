@@ -34,12 +34,6 @@ public class FlightMapper {
                 flight.getPrice());
     }
 
-    public List<Flight> mapToFlightList (final List <FlightDto>  flightDtoList) {
-        return flightDtoList.stream()
-                .map(this::mapToFlight)
-                .collect(Collectors.toList());
-    }
-
     public List<FlightDto> mapToFlightDtoList(final List<Flight> flightsList) {
         return flightsList.stream()
                 .map(this::mapToFlightDto)
