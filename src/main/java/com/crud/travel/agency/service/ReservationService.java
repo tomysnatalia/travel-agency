@@ -1,5 +1,6 @@
 package com.crud.travel.agency.service;
 
+import com.crud.travel.agency.domain.Flight;
 import com.crud.travel.agency.domain.Reservation;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.repository.ReservationRepository;

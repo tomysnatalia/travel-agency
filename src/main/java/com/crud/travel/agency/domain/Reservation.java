@@ -29,8 +29,7 @@ import java.util.Objects;
 
 })
 
-@Entity
-@Table (name = "reservation")
+@Entity(name = "reservation")
 public class Reservation {
 
     @Id
@@ -99,5 +98,26 @@ public class Reservation {
         return Objects.hash(id, flightId, hotelId, name, surname, email, phoneNumber);
     }
 
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", flightId=" + flightId +
+                ", hotelId=" + hotelId +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", numberOfAdults=" + numberOfAdults +
+                ", numberOfKids=" + numberOfKids +
+                ", hotelPrice=" + hotelPrice +
+                ", deposit=" + deposit +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                ", depositStatus='" + depositStatus + '\'' +
+                ", paymentDate=" + paymentDate +
+                ", hotelPriceWithFlight=" + hotelPriceWithFlight +
+                '}';
+    }
 }
+
 

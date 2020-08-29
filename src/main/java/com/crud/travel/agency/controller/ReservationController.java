@@ -1,5 +1,6 @@
 package com.crud.travel.agency.controller;
 
+import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
@@ -32,7 +33,7 @@ public class ReservationController {
     public List<ReservationDto> getReservationBySurname (@PathVariable String surname) {
         return reservationMapper.mapToReservationDtoList(reservationService.findBySurname(surname)); }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/paymentDa/{paymentDate}")
+    @RequestMapping(method = RequestMethod.GET, value = "/paymentDate/{paymentDate}")
     public List<ReservationDto> getReservationByPaymentDate(@PathVariable LocalDate paymentDate) {
         return reservationMapper.mapToReservationDtoList(reservationService.findByPaymentDate(paymentDate)); }
 
