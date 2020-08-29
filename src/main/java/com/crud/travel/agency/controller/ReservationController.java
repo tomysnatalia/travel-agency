@@ -1,6 +1,5 @@
 package com.crud.travel.agency.controller;
 
-import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
