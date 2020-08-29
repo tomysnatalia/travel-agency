@@ -35,7 +35,7 @@ public class Flight {
     private LocalDate returnDate;
 
     @Column(name = "flightNumber")
-    private Long flightNumber;
+    private String flightNumber;
 
     @Column(name = "price")
     private Long price;

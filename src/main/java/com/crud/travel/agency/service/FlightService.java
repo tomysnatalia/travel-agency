@@ -26,8 +26,6 @@ public class FlightService {
         return flightRepository.findByArrival(arrival);
     }
 
-    public List<Flight> findByFlightNumber(final Long flightNumber) { return flightRepository.findByFlightNumber(flightNumber); }
-
     public Flight findById(final Long id) throws TravelAgencyNotFoundException { return flightRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
     public List <Flight> findByDepartureDate(final LocalDate departureDate) { return flightRepository.findByDepartureDate(departureDate); }

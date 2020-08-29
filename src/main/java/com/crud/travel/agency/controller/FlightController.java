@@ -37,10 +37,6 @@ public class FlightController {
     public List<FlightDto> getFlightByArrival(@PathVariable String arrival) {
         return flightMapper.mapToFlightDtoList(flightService.findByArrival(arrival)); }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/flightNumber/{flightNumber}")
-    public List<FlightDto> getFlightByNumber(@PathVariable Long flightNumber) {
-        return flightMapper.mapToFlightDtoList(flightService.findByFlightNumber(flightNumber)); }
-
     @RequestMapping(method = RequestMethod.GET, value = "/departureDate/{departureDate}")
     public List<FlightDto> getFlightByDepartureDate(@PathVariable LocalDate departureDate) {
         return flightMapper.mapToFlightDtoList(flightService.findByDepartureDate(departureDate)); }
