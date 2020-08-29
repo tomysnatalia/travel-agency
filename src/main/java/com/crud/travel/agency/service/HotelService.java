@@ -30,9 +30,9 @@ public class HotelService {
 
     public List<Hotel> findByHotelOfficialRating (final String hotelOfficialRating) { return hotelRepository.findByHotelOfficialRating(hotelOfficialRating); }
 
-    public List<Hotel> findByFoodOption (String foodOption) {
-        return hotelRepository.findByFoodOption(foodOption);
-    }
+    public List<Hotel> findByFoodOption (final String foodOption) { return hotelRepository.findByFoodOption(foodOption); }
+
+    public List<Hotel> findByDuration(final Long duration) { return hotelRepository.findByDuration(duration);}
 
     public Hotel saveHotel(final Hotel hotel) { return hotelRepository.save(hotel); }
 

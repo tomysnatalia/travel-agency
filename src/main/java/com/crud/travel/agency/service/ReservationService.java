@@ -23,13 +23,11 @@ public class ReservationService {
 
     public Reservation getReservationById(final Long id) throws TravelAgencyNotFoundException { return reservationRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
-    public List<Reservation> findBySurname(String surname) {
-        return reservationRepository.findBySurname(surname);
-    }
+    public List<Reservation> findBySurname(final String surname) { return reservationRepository.findBySurname(surname); }
 
-    public List<Reservation> findByPaymentDate(LocalDate paymentDay) { return reservationRepository.findByPaymentDate(paymentDay); }
+    public List<Reservation> findByPaymentDate(final LocalDate paymentDay) { return reservationRepository.findByPaymentDate(paymentDay); }
 
-    public List<Reservation> findByPaymentStatus(String paymentStatus) { return reservationRepository.findByPaymentStatus(paymentStatus); }
+    public List<Reservation> findByPaymentStatus(final String paymentStatus) { return reservationRepository.findByPaymentStatus(paymentStatus); }
 
     public Reservation saveReservation(final Reservation reservation) { return reservationRepository.save(reservation); }
 

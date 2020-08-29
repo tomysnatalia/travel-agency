@@ -48,6 +48,10 @@ public class HotelController {
     public List<HotelDto> getHotelByFoodOption(@PathVariable String foodOption)  {
         return hotelMapper.mapToHotelDtoList(hotelService.findByFoodOption(foodOption)); }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/duration/{duration}")
+    public List<HotelDto> getHotelByDuration(@PathVariable Long duration) {
+        return hotelMapper.mapToHotelDtoList(hotelService.findByDuration(duration)); }
+
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public void createHotel(@RequestBody HotelDto hotelDto) {
         hotelService.saveHotel(hotelMapper.mapToHotel(hotelDto)); }

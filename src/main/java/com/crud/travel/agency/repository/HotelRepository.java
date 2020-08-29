@@ -20,21 +20,24 @@ public interface HotelRepository extends CrudRepository <Hotel, Long>, HotelInte
     List<Hotel> findAll();
 
     @Override
-    void deleteById (Long id);
+    void deleteById(Long id);
 
     @Override
-    List<Hotel> findByHotelName (String hotelName);
+    List<Hotel> findByHotelName(String hotelName);
 
     @Override
-    List<Hotel> findByLocationCity (String locationCity);
+    List<Hotel> findByLocationCity(String locationCity);
 
     @Override
-    List<Hotel> findByLocationCountry (String locationCountry);
+    List<Hotel> findByLocationCountry(String locationCountry);
 
     @Override
-    List<Hotel> findByHotelOfficialRating (String hotelOfficialRating);
+    List<Hotel> findByHotelOfficialRating(String hotelOfficialRating);
 
     @Override
-    List<Hotel> findByFoodOption (String foodOption);
+    List<Hotel> findByFoodOption(String foodOption);
+
+    @Override
+    List<Hotel> findByDuration(Long duration);
 }
 

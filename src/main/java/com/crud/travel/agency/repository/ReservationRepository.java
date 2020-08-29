@@ -17,22 +17,22 @@ public interface ReservationRepository extends CrudRepository <Reservation, Long
     List<Reservation> findAll();
 
     @Override
-    Reservation save (Reservation reservation);
+    Reservation save(Reservation reservation);
 
     @Override
-    Optional<Reservation> findById (Long id);
+    Optional<Reservation> findById(Long id);
 
     @Override
-    void deleteById (Long id);
+    void deleteById(Long id);
 
     @Override
-    List<Reservation> findBySurname (String surname);
+    List<Reservation> findBySurname(String surname);
 
     @Override
-    List<Reservation> findByPaymentDate (LocalDate paymentDate);
+    List<Reservation> findByPaymentDate(LocalDate paymentDate);
 
     @Override
-    List<Reservation> findByPaymentStatus (String paymentStatus);
+    List<Reservation> findByPaymentStatus(String paymentStatus);
 
     @Query(nativeQuery = true)
     @Modifying

@@ -8,8 +8,6 @@ import java.util.List;
 @Repository
 public interface HotelInterface {
 
-
-
     List<Hotel> findByHotelName (String hotelName);
 
     List<Hotel> findByLocationCity (String locationCity);
@@ -19,4 +17,6 @@ public interface HotelInterface {
     List<Hotel> findByHotelOfficialRating (String hotelOfficialRating);
 
     List<Hotel> findByFoodOption (String foodOption);
+
+    List<Hotel> findByDuration (Long duration);
 }

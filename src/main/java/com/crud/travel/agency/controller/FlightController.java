@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -36,6 +37,18 @@ public class FlightController {
     public List<FlightDto> getFlightByArrival(@PathVariable String arrival) {
         return flightMapper.mapToFlightDtoList(flightService.findByArrival(arrival)); }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/flightNumber/{flightNumber}")
+    public List<FlightDto> getFlightByNumber(@PathVariable String flightNumber) {
+        return flightMapper.mapToFlightDtoList(flightService.findByFlightNumber(flightNumber)); }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/departureDate/{departureDate}")
+    public List<FlightDto> getFlightByDepartureDate(@PathVariable LocalDate departureDate) {
+        return flightMapper.mapToFlightDtoList(flightService.findByDepartureDate(departureDate)); }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/returnDate/{returnDate}")
+    public List<FlightDto> getFlightByReturnDate(@PathVariable LocalDate returnDate) {
+        return flightMapper.mapToFlightDtoList(flightService.findByReturnDate(returnDate)); }
+
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public void createFlight(@RequestBody FlightDto flightDto) {
         flightService.saveFlight(flightMapper.mapToFlight(flightDto)); }
@@ -49,7 +62,5 @@ public class FlightController {
         flightService.deleteFlight(id);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/flightNumber/{flightNumber}")
-    public List<FlightDto> getFlightByNumber(@PathVariable String flightNumber) {
-        return flightMapper.mapToFlightDtoList(flightService.findByFlightNumber(flightNumber)); }
+
 }
