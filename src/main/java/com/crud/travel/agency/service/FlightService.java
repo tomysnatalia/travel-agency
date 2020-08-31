@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -27,10 +26,6 @@ public class FlightService {
     }
 
     public Flight findById(final Long id) throws TravelAgencyNotFoundException { return flightRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
-
-    public List <Flight> findByDepartureDate(final LocalDate departureDate) { return flightRepository.findByDepartureDate(departureDate); }
-
-    public List<Flight> findByReturnDate(final LocalDate returnDate) { return flightRepository.findByReturnDate(returnDate); }
 
     public Flight saveFlight (final Flight flight) {
         return flightRepository.save(flight);

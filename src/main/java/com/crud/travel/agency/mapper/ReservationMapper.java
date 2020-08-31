@@ -24,11 +24,12 @@ public class ReservationMapper {
                 reservationDto.getNumberOfAdults(),
                 reservationDto.getNumberOfKids(),
                 reservationDto.getHotelPrice(),
+                reservationDto.getFlightPrice(),
                 reservationDto.getDeposit(),
                 reservationDto.getPaymentStatus(),
                 reservationDto.getDepositStatus(),
                 reservationDto.getPaymentDate(),
-                reservationDto.getHotelPriceWithFlight());
+                reservationDto.getTotalPrice());
     }
 
     public ReservationDto mapToReservationDto (final Reservation reservation) {
@@ -43,11 +44,12 @@ public class ReservationMapper {
                 reservation.getNumberOfAdults(),
                 reservation.getNumberOfKids(),
                 reservation.getHotelPrice(),
+                reservation.getFlightPrice(),
                 reservation.getDeposit(),
                 reservation.getPaymentStatus(),
                 reservation.getDepositStatus(),
                 reservation.getPaymentDate(),
-                reservation.getHotelPriceWithFlight());
+                reservation.getTotalPrice());
     }
 
     public List<ReservationDto> mapToReservationDtoList (final List<Reservation> reservationList) {

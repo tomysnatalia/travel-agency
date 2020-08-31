@@ -64,6 +64,7 @@ public class HotelController {
     public void deleteHotel(@PathVariable Long id) {
         hotelService.deleteHotel(id);
     }
+
 }
 
 

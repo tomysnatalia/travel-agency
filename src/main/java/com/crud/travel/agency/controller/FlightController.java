@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Slf4j
 @AllArgsConstructor
@@ -27,23 +28,18 @@ public class FlightController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
     public FlightDto getFlightById(@PathVariable Long id) throws TravelAgencyNotFoundException {
-        return flightMapper.mapToFlightDto(flightService.findById(id)); }
+        return flightMapper.mapToFlightDto(flightService.findById(id));
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/departure/{departure}")
-    public List<FlightDto> getFlightByDeparture(@PathVariable String departure)  {
-        return flightMapper.mapToFlightDtoList(flightService.findByDeparture(departure)); }
+    public List<FlightDto> getFlightByDeparture(@PathVariable String departure) {
+        return flightMapper.mapToFlightDtoList(flightService.findByDeparture(departure));
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/arrival/{arrival}")
     public List<FlightDto> getFlightByArrival(@PathVariable String arrival) {
-        return flightMapper.mapToFlightDtoList(flightService.findByArrival(arrival)); }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/departureDate/{departureDate}")
-    public List<FlightDto> getFlightByDepartureDate(@PathVariable LocalDate departureDate) {
-        return flightMapper.mapToFlightDtoList(flightService.findByDepartureDate(departureDate)); }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/returnDate/{returnDate}")
-    public List<FlightDto> getFlightByReturnDate(@PathVariable LocalDate returnDate) {
-        return flightMapper.mapToFlightDtoList(flightService.findByReturnDate(returnDate)); }
+        return flightMapper.mapToFlightDtoList(flightService.findByArrival(arrival));
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     public void createFlight(@RequestBody FlightDto flightDto) {

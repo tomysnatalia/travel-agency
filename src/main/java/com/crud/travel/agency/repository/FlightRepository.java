@@ -29,11 +29,6 @@ public interface FlightRepository extends CrudRepository <Flight, Long>, FlightI
     @Override
     List<Flight> findByArrival(String arrival);
 
-    @Override
-    List<Flight> findByDepartureDate(LocalDate departureDate);
-
-    @Override
-    List<Flight> findByReturnDate(LocalDate returnDate);
 }
 
 

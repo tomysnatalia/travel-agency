@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,19 +28,20 @@ public interface ReservationRepository extends CrudRepository <Reservation, Long
     List<Reservation> findBySurname(String surname);
 
     @Override
-    List<Reservation> findByPaymentDate(LocalDate paymentDate);
-
-    @Override
     List<Reservation> findByPaymentStatus(String paymentStatus);
 
-    @Query(nativeQuery = true)
-    @Modifying
+
+    @Modifying @Query(nativeQuery = true)
     void getHotelPrice();
 
-    @Query(nativeQuery = true)
-    @Modifying
+    @Modifying @Query(nativeQuery = true)
     void getHotelPriceWithFlight();
 
+    @Modifying @Query(nativeQuery = true)
+    void getFlightPrice();
+
+    @Modifying @Query(nativeQuery = true)
+    void getDeposit();
 
 
 }

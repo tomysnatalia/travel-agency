@@ -22,11 +22,12 @@ public class ReservationDto {
     private Long numberOfAdults;
     private Long numberOfKids;
     private Long hotelPrice;
+    private Long flightPrice;
     private Long deposit;
     private String paymentStatus;
     private String depositStatus;
     private LocalDate paymentDate;
-    private Long hotelPriceWithFlight;
+    private Long totalPrice;
 
     @Override
     public boolean equals(Object o) {

@@ -24,7 +24,17 @@ import java.util.Objects;
 
         @NamedNativeQuery(
                 name = "Reservation.getHotelPriceWithFlight",
-                query = "Update reservation set hotel_price_with_flight = ((select (adults + kids) * price from flights where id = flight_id) + hotel_price);",
+                query = "Update reservation set hotel_price_with_flight = (flight_price + hotel_price);",
+                resultClass = Reservation.class),
+
+        @NamedNativeQuery(
+                name = "Reservation.getFlightPrice",
+                query = "Update reservation set flight_price = (select (adults + kids) * price from flights where id = flight_id);",
+                resultClass = Reservation.class),
+
+        @NamedNativeQuery(
+                name = "Reservation.getDeposit",
+                query = "Update reservation set deposit = (select hotel_price * 0.20);",
                 resultClass = Reservation.class)
 
 })
@@ -63,6 +73,9 @@ public class Reservation {
     @Column(name = "hotelPrice")
     private Long hotelPrice;
 
+    @Column(name = "flightPrice")
+    private Long flightPrice;
+
     @Column(name = "deposit")
     private Long deposit;
 
@@ -76,7 +89,7 @@ public class Reservation {
     private LocalDate paymentDate;
 
     @Column(name = "hotel_price_with_flight")
-    private Long hotelPriceWithFlight;
+    private Long totalPrice;
 
     @Override
     public boolean equals(Object o) {
@@ -113,7 +126,7 @@ public class Reservation {
                 ", paymentStatus='" + paymentStatus + '\'' +
                 ", depositStatus='" + depositStatus + '\'' +
                 ", paymentDate=" + paymentDate +
-                ", hotelPriceWithFlight=" + hotelPriceWithFlight +
+                ", hotelPriceWithFlight=" + totalPrice +
                 '}';
     }
 }
