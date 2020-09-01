@@ -31,8 +31,6 @@ public class CoreConfiguration implements WebMvcConfigurer {
                 .pathMapping("/")
                 .select()
                 .paths(PathSelectors.regex("/travelAgency.*"))
-                //.paths(PathSelectors.regex("/hotel.*"))
-               // .paths(PathSelectors.regex("/reservation.*"))
                 .build();
     }
 
@@ -42,7 +40,6 @@ public class CoreConfiguration implements WebMvcConfigurer {
                 .description("Natalia Tomys - Travel Agency")
                 .build();
     }
-
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {

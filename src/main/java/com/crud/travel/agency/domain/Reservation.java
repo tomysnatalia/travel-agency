@@ -39,7 +39,7 @@ import java.util.Objects;
 
         @NamedNativeQuery(
                 name = "Reservation.getPaymentDate",
-                query = "Update reservation set payment_date = ((select departure_date from hotels where id = hotel_id) - 14;",
+                query = "Update reservation set payment_date = ((select departure_date from hotels where id = hotel_id) - (14));",
                 resultClass = Reservation.class)
 
 })

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping ("travelAgency/flight")
+@RequestMapping ("/travelAgency/flight")
 public class FlightController {
     private final FlightService flightService;
     private final FlightMapper flightMapper;

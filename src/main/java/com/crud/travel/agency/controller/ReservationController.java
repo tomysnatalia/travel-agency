@@ -57,6 +57,9 @@ public class ReservationController {
         if((reservationDto.getFlightId() != null) & (reservationDto.getHotelId()!=null) || ((reservationDto.getFlightId() == null) & (reservationDto.getHotelId()!=null))) {
             reservationService.getDeposit(); }
 
+        if (reservationDto.getHotelId() != null) {
+           reservationService.getPaymentDate();
+        }
     }
 
     @Transactional
