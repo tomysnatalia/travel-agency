@@ -23,7 +23,9 @@ public class HotelMapper {
                 hotelDto.getPricePerNightForAdult(),
                 hotelDto.getPricePerNightForKid(),
                 hotelDto.getFoodOption(),
-                hotelDto.getDuration());
+                hotelDto.getDuration(),
+                hotelDto.getDepartureDate(),
+                hotelDto.getReturnDate());
     }
 
     public HotelDto mapToHotelDto (final Hotel hotel) {
@@ -37,7 +39,9 @@ public class HotelMapper {
                 hotel.getPricePerNightForAdult(),
                 hotel.getPricePerNightForKid(),
                 hotel.getFoodOption(),
-                hotel.getDuration());
+                hotel.getDuration(),
+                hotel.getDepartureDate(),
+                hotel.getReturnDate());
     }
 
     public List<HotelDto> mapToHotelDtoList (final List<Hotel> hotelList) {

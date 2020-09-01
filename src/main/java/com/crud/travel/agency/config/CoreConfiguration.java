@@ -28,9 +28,11 @@ public class CoreConfiguration implements WebMvcConfigurer {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .pathMapping("/")
                 .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.regex("/travelAgency.*"))
+                //.paths(PathSelectors.regex("/hotel.*"))
+               // .paths(PathSelectors.regex("/reservation.*"))
                 .build();
     }
 

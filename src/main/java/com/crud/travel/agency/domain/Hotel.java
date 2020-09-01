@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -32,18 +33,14 @@ public class Hotel {
     @Column(name = "city")
     private String locationCity;
 
-
     @Column(name = "airport")
     private String closerAirport;
-
 
     @Column(name = "starsRating")
     private String hotelOfficialRating;
 
-
     @Column(name = "adult")
     private Long pricePerNightForAdult;
-
 
     @Column(name = "kid")
     private Long pricePerNightForKid;
@@ -53,6 +50,12 @@ public class Hotel {
 
     @Column(name = "duration")
     private Long duration;
+
+    @Column(name = "departureDate")
+    private LocalDate departureDate;
+
+    @Column(name = "returnDate")
+    private LocalDate returnDate;
 
 
     @Override
@@ -70,6 +73,7 @@ public class Hotel {
         return Objects.hash(hotelName, locationCountry, locationCity);
     }
 
+
     @Override
     public String toString() {
         return "Hotel{" +
@@ -83,6 +87,8 @@ public class Hotel {
                 ", pricePerNightForKid=" + pricePerNightForKid +
                 ", foodOption='" + foodOption + '\'' +
                 ", duration=" + duration +
+                ", departureDate=" + departureDate +
+                ", returnDate=" + returnDate +
                 '}';
     }
 }

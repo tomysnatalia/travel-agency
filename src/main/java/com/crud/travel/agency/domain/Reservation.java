@@ -35,6 +35,11 @@ import java.util.Objects;
         @NamedNativeQuery(
                 name = "Reservation.getDeposit",
                 query = "Update reservation set deposit = (select hotel_price * 0.20);",
+                resultClass = Reservation.class),
+
+        @NamedNativeQuery(
+                name = "Reservation.getPaymentDate",
+                query = "Update reservation set payment_date = ((select departure_date from hotels where id = hotel_id) - 14;",
                 resultClass = Reservation.class)
 
 })
@@ -85,7 +90,7 @@ public class Reservation {
     @Column(name = "depositStatus")
     private String depositStatus;
 
-    @Column(name = "paymentday")
+    @Column(name = "paymentDate")
     private LocalDate paymentDate;
 
     @Column(name = "hotel_price_with_flight")

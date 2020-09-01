@@ -31,7 +31,7 @@ public class Flight {
     @Column(name = "departureDate")
     private LocalDate departureDate;
 
-    @Column(name = "returnDay")
+    @Column(name = "returnDate")
     private LocalDate returnDate;
 
     @Column(name = "flightNumber")

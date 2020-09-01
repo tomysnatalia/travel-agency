@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/reservation")
+@RequestMapping("/travelAgency/reservation")
 public class ReservationController {
     private final ReservationService reservationService;
     private final ReservationMapper reservationMapper;
@@ -48,14 +48,15 @@ public class ReservationController {
         if (reservationDto.getFlightId() != null) {
             reservationService.getFlightPrice(); }
 
-        if (reservationDto.getHotelPrice() != null) {
+        if (reservationDto.getHotelId() != null) {
             reservationService.getHotelPrice(); }
 
         if((reservationDto.getFlightId() != null) & (reservationDto.getHotelId()!=null)) {
             reservationService.getHotelPriceWithFlight(); }
 
-        if(reservationDto.getHotelPrice() != null) {
+        if((reservationDto.getFlightId() != null) & (reservationDto.getHotelId()!=null) || ((reservationDto.getFlightId() == null) & (reservationDto.getHotelId()!=null))) {
             reservationService.getDeposit(); }
+
     }
 
     @Transactional

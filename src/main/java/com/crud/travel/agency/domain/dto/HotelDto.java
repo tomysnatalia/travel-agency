@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -20,6 +22,8 @@ public class HotelDto {
     private Long pricePerNightForKid;
     private String foodOption;
     private Long duration;
+    private LocalDate departureDate;
+    private LocalDate returnDate;
 
     @Override
     public boolean equals(Object o) {

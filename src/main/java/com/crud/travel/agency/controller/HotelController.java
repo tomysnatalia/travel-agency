@@ -1,6 +1,5 @@
 package com.crud.travel.agency.controller;
 
-import com.crud.travel.agency.domain.dto.FlightDto;
 import com.crud.travel.agency.domain.dto.HotelDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.HotelMapper;
@@ -15,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/hotel")
+@RequestMapping("travelAgency/hotel")
 public class HotelController {
     private final HotelService hotelService;
     private final HotelMapper hotelMapper;

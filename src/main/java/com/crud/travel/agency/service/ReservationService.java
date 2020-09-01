@@ -31,9 +31,11 @@ public class ReservationService {
 
     public void getHotelPriceWithFlight() { reservationRepository.getHotelPriceWithFlight(); }
 
-    public void getFlightPrice() {reservationRepository.getFlightPrice();}
+    public void getFlightPrice() { reservationRepository.getFlightPrice(); }
 
-    public void getDeposit() {reservationRepository.getHotelPrice();}
+    public void getDeposit() { reservationRepository.getDeposit(); }
+
+    public void getPaymentDate() { reservationRepository.getPaymentDate(); }
 
     public void deleteById(final Long id) {
         reservationRepository.deleteById(id);
