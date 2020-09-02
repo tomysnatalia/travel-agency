@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMailMessage.class);
 
     @Autowired

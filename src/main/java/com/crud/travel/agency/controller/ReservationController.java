@@ -1,5 +1,6 @@
 package com.crud.travel.agency.controller;
 
+import com.crud.travel.agency.domain.dto.CreationReservationDto;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
@@ -70,6 +71,12 @@ public class ReservationController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
     public void deleteReservation (@PathVariable Long id) {
-        reservationService.deleteById(id); }
+        reservationService.deleteById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/CreateReservationsEmails")
+    public Integer createReservationsEmails(@RequestBody ReservationDto reservationDto) {
+        return reservationService.createReservation(reservationDto);
+    }
 }
 

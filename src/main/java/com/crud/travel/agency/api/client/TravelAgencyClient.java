@@ -15,9 +15,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 @Component
 public class TravelAgencyClient {
@@ -30,29 +27,12 @@ public class TravelAgencyClient {
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<ReservationDto> getReservations(){
-
-        URI url = UriComponentsBuilder.fromHttpUrl(travelAgencyConfig.getTravelAgencyUrl())
-                .path("/reservation/reservations")
-                .build().encode().toUri();
-        LOGGER.info("url: " + url);
-
-        try {
-            ReservationDto[] response = restTemplate.getForObject(url, ReservationDto[].class);
-            return Arrays.asList(response);
-        } catch (RestClientException e) {
-            LOGGER.error(e.getMessage());
-
-            return new ArrayList<>();
-        }
-
-    }
 
     public Integer createReservation(final ReservationDto reservationDto) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<ReservationDto> request = new HttpEntity<>(reservationDto, headers);
+       HttpEntity<ReservationDto> request = new HttpEntity<>(reservationDto, headers);
 
         URI url = UriComponentsBuilder.fromHttpUrl(travelAgencyConfig.getTravelAgencyUrl())
                 .path("/reservation/create")
@@ -66,6 +46,4 @@ public class TravelAgencyClient {
             return 0;
         }
     }
-
-
 }
