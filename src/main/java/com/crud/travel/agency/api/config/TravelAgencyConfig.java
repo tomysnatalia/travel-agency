@@ -10,4 +10,7 @@ public class TravelAgencyConfig {
 
     @Value("${travelAgency.api.url}")
     private String travelAgencyUrl;
+
+    @Value("${travelAgency.localhost}")
+    private String travelAgencyLocalhost;
 }

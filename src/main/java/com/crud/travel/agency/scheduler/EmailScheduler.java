@@ -34,8 +34,7 @@ public class EmailScheduler {
     @Autowired
     private TravelAgencyConfig travelAgencyConfig;
 
-    @Scheduled //(fixedDelay = 1000)//
-    (cron = "0 0 10 * * *")
+    @Scheduled (cron = "0 0 10 * * *")
     public void sendInformationEmail(){
         emailService.send(new Mail(
                 adminConfig.getAdminMail(),

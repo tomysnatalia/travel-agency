@@ -74,7 +74,7 @@ public class ReservationController {
         reservationService.deleteById(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/CreateReservationsEmails")
+    @RequestMapping(method = RequestMethod.POST, value = "/createReservationsEmails")
     public Integer createReservationsEmails(@RequestBody ReservationDto reservationDto) {
         return reservationService.createReservation(reservationDto);
     }

@@ -2,10 +2,8 @@ package com.crud.travel.agency.service;
 
 import com.crud.travel.agency.api.client.TravelAgencyClient;
 import com.crud.travel.agency.api.config.TravelAgencyConfig;
-import com.crud.travel.agency.config.AdminConfig;
 import com.crud.travel.agency.domain.Mail;
 import com.crud.travel.agency.domain.Reservation;
-import com.crud.travel.agency.domain.dto.CreationReservationDto;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.repository.ReservationRepository;
@@ -15,7 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import static java.util.Optional.ofNullable;
+import java.util.Optional;
+
 
 @Slf4j
 @AllArgsConstructor
@@ -56,22 +55,18 @@ public class ReservationService {
 
     public void getPaymentDate() { reservationRepository.getPaymentDate(); }
 
-    public void deleteById(final Long id) {
-        reservationRepository.deleteById(id); }
+    public void deleteById(final Long id) { reservationRepository.deleteById(id); }
 
     public Integer createReservation(final ReservationDto reservationDto) {
         Integer newReservation = travelAgencyClient.createReservation(reservationDto);
-        ofNullable(newReservation).ifPresent(reservation -> emailService.send(new Mail(reservationDto.getEmail(), SUBJECT,
-                "Reservation Confirmation \n" + "Thank you for booking with us. Full details of your booking are in link below \n "
-                        + travelAgencyConfig.getTravelAgencyUrl() + "/reservation/id" + reservationDto.getId()
-                        + "\n YOUR BOOKING NUMBER: " + reservationDto.getId()
-                        + "\n NAME: " + reservationDto.getName()
-                        + "\n SURNAME: " + reservationDto.getSurname()
-                        + "\n TOTAL PRICE: " + reservationDto.getTotalPrice())));
-
+        Optional.ofNullable(newReservation).ifPresent(reservation -> emailService.send(new Mail(reservationDto.getEmail(), SUBJECT,
+                "Reservation Confirmation \n"
+                        + reservationDto.getName() + " "
+                        + reservationDto.getSurname()
+                        + "\n Thank you for booking with us. Full details of your booking log in to our website"
+                        + travelAgencyConfig.getTravelAgencyUrl())));
         return newReservation;
     }
-
 }
 
 

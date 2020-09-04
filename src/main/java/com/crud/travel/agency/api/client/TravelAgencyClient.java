@@ -27,14 +27,13 @@ public class TravelAgencyClient {
     @Autowired
     private RestTemplate restTemplate;
 
-
     public Integer createReservation(final ReservationDto reservationDto) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
        HttpEntity<ReservationDto> request = new HttpEntity<>(reservationDto, headers);
 
-        URI url = UriComponentsBuilder.fromHttpUrl(travelAgencyConfig.getTravelAgencyUrl())
+        URI url = UriComponentsBuilder.fromHttpUrl(travelAgencyConfig.getTravelAgencyLocalhost())
                 .path("/reservation/create")
                 .build().encode().toUri();
         LOGGER.info("url: " + url);
