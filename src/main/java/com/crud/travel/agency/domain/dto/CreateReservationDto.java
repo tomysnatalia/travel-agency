@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreationReservationDto {
+public class CreateReservationDto {
 
     @JsonProperty("flight")
     private Long flightId;

@@ -20,8 +20,10 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 public class ReservationService {
-    private final ReservationRepository reservationRepository;
     private static final String SUBJECT = "New Reservation";
+
+    @Autowired
+    private final ReservationRepository reservationRepository;
 
     @Autowired
     private TravelAgencyClient travelAgencyClient;
@@ -36,14 +38,13 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
-    public Reservation getReservationById(final Long id) throws TravelAgencyNotFoundException { return reservationRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
+    public Reservation findById(final Long id) throws TravelAgencyNotFoundException { return reservationRepository.findById(id).orElseThrow(TravelAgencyNotFoundException::new); }
 
     public List<Reservation> findBySurname(final String surname) { return reservationRepository.findBySurname(surname); }
 
     public List<Reservation> findByPaymentStatus(final String paymentStatus) { return reservationRepository.findByPaymentStatus(paymentStatus); }
 
-    public Reservation saveReservation(final Reservation reservation) {
-        return reservationRepository.save(reservation); }
+    public Reservation saveReservation(final Reservation reservation) { return reservationRepository.save(reservation); }
 
     public void getHotelPrice() { reservationRepository.getHotelPrice(); }
 

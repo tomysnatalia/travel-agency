@@ -1,6 +1,5 @@
 package com.crud.travel.agency.controller;
 
-import com.crud.travel.agency.domain.dto.CreationReservationDto;
 import com.crud.travel.agency.domain.dto.ReservationDto;
 import com.crud.travel.agency.exception.TravelAgencyNotFoundException;
 import com.crud.travel.agency.mapper.ReservationMapper;
@@ -29,7 +28,7 @@ public class ReservationController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/id/{id}")
     public ReservationDto getReservationById(@PathVariable Long id) throws TravelAgencyNotFoundException {
-        return reservationMapper.mapToReservationDto(reservationService.getReservationById(id));
+        return reservationMapper.mapToReservationDto(reservationService.findById(id));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/surname/{surname}")
