@@ -24,6 +24,7 @@ public class HotelDto {
     private LocalDate departureDate;
     private LocalDate returnDate;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,3 +40,4 @@ public class HotelDto {
         return Objects.hash(hotelName, locationCountry, locationCity);
     }
 }
+

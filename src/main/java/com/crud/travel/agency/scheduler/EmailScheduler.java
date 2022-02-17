@@ -1,8 +1,6 @@
 package com.crud.travel.agency.scheduler;
 
 import com.crud.travel.agency.api.config.TravelAgencyConfig;
-import com.crud.travel.agency.config.AdminConfig;
-import com.crud.travel.agency.domain.Mail;
 import com.crud.travel.agency.domain.MailToCustomers;
 
 import com.crud.travel.agency.domain.Reservation;
@@ -27,14 +25,10 @@ public class EmailScheduler {
     private EmailService emailService;
 
     @Autowired
-    private AdminConfig adminConfig;
-
-    @Autowired
     private TravelAgencyConfig travelAgencyConfig;
 
     @Autowired
     private ReservationRepository reservationRepository;
-
 
     @Scheduled (cron = "0 0 10 * * *")
     //@Scheduled(fixedDelay = 10000)

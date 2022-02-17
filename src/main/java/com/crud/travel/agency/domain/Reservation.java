@@ -19,28 +19,25 @@ import java.util.Objects;
 
         @NamedNativeQuery(
                 name = "Reservation.getHotelPrice",
-                query = "Update reservation set hotel_price = ((select duration * adult from hotels where id = hotel_id) * (adults)+ (select duration * kid from hotels where id = hotel_id) * (kids));",
-                resultClass = Reservation.class),
+                query = "Update reservation set hotel_price = ((select duration * adult from hotels where id = hotel_id) * (adults)+ (select duration * kid from hotels where id = hotel_id) * (kids));"),
+
 
         @NamedNativeQuery(
                 name = "Reservation.getHotelPriceWithFlight",
-                query = "Update reservation set hotel_price_with_flight = (flight_price + hotel_price);",
-                resultClass = Reservation.class),
+                query = "Update reservation set hotel_price_with_flight = (flight_price + hotel_price);"),
+
 
         @NamedNativeQuery(
                 name = "Reservation.getFlightPrice",
-                query = "Update reservation set flight_price = (select (adults + kids) * price from flights where id = flight_id);",
-                resultClass = Reservation.class),
+                query = "Update reservation set flight_price = (select (adults + kids) * price from flights where id = flight_id);"),
 
         @NamedNativeQuery(
                 name = "Reservation.getDeposit",
-                query = "Update reservation set deposit = (select hotel_price * 0.20);",
-                resultClass = Reservation.class),
+                query = "Update reservation set deposit = (select hotel_price * 0.20);"),
 
         @NamedNativeQuery(
                 name = "Reservation.getPaymentDate",
-                query = "Update reservation set payment_date = ((select departure_date from hotels where id = hotel_id) - (14));",
-                resultClass = Reservation.class)
+                query = "Update reservation set payment_date = ((select departure_date from hotels where id = hotel_id) - (14));"),
 
 })
 
@@ -75,10 +72,10 @@ public class Reservation {
     @Column(name = "kids")
     private Long numberOfKids;
 
-    @Column(name = "hotelPrice")
+    @Column(name = "hotel_price")
     private Long hotelPrice;
 
-    @Column(name = "flightPrice")
+    @Column(name = "flight_price")
     private Long flightPrice;
 
     @Column(name = "deposit")
@@ -111,7 +108,7 @@ public class Reservation {
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightId, hotelId, name, surname, email, phoneNumber);
+        return Objects.hash(id, flightId, hotelId, name, surname, email, phoneNumber, numberOfAdults, numberOfKids, hotelPrice, flightPrice, deposit, paymentStatus, depositStatus, paymentDate, totalPrice);
     }
 
     @Override
@@ -127,11 +124,12 @@ public class Reservation {
                 ", numberOfAdults=" + numberOfAdults +
                 ", numberOfKids=" + numberOfKids +
                 ", hotelPrice=" + hotelPrice +
+                ", flightPrice=" + flightPrice +
                 ", deposit=" + deposit +
                 ", paymentStatus='" + paymentStatus + '\'' +
                 ", depositStatus='" + depositStatus + '\'' +
                 ", paymentDate=" + paymentDate +
-                ", hotelPriceWithFlight=" + totalPrice +
+                ", totalPrice=" + totalPrice +
                 '}';
     }
 }

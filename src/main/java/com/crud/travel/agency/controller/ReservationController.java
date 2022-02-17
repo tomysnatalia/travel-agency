@@ -51,10 +51,10 @@ public class ReservationController {
         if (reservationDto.getHotelId() != null) {
             reservationService.getHotelPrice(); }
 
-        if((reservationDto.getFlightId() != null) & (reservationDto.getHotelId()!=null)) {
+        if((reservationDto.getFlightId() != null) && (reservationDto.getHotelId() != null)) {
             reservationService.getHotelPriceWithFlight(); }
 
-        if((reservationDto.getFlightId() != null) & (reservationDto.getHotelId()!=null) || ((reservationDto.getFlightId() == null) & (reservationDto.getHotelId()!=null))) {
+        if((reservationDto.getFlightId() != null) && (reservationDto.getHotelId()!=null) || ((reservationDto.getFlightId() == null) && (reservationDto.getHotelId()!=null))) {
             reservationService.getDeposit(); }
 
         if (reservationDto.getHotelId() != null) {
